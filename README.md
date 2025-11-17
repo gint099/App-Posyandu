@@ -52,7 +52,7 @@ Sistem informasi untuk mengelola data kesehatan balita di Posyandu dengan fitur 
 ### **1. Clone/Download Project**
 
 ```bash
-git clone [repository-url]
+git clone [https://github.com/gint099/App-Posyandu]
 cd posyandu-app
 ```
 
@@ -277,14 +277,6 @@ npm run build
 
 ---
 
-## 📞 **KONTAK & SUPPORT**
-
-Untuk pertanyaan dan dukungan:
-- Email: support@posyandu.com
-- GitHub Issues: [link]
-
----
-
 ## 📄 **LICENSE**
 
 MIT License - Free to use
@@ -296,8 +288,9 @@ MIT License - Free to use
 Developed with ❤️ for better health monitoring
 
 **Version:** 1.0.0  
-**Last Updated:** 2024
+**Last Updated:** 2025
 ```
+
 
 ---
 
@@ -369,36 +362,3 @@ http://localhost:8000
 # Admin: admin@posyandu.com / admin123
 # Kader: kader1@posyandu.com / kader123
 ```
-
----
-
-## 🎯 **FITUR BONUS (Opsional untuk Pengembangan)**
-
-Jika ingin dikembangkan lebih lanjut:
-- 📧 Email notification untuk jadwal
-- 📱 SMS reminder untuk orang tua
-- 📊 Export Excel untuk laporan
-- 🗺️ Google Maps integration
-- 📷 Upload foto pasien
-- 💬 WhatsApp integration
-- 📈 Dashboard analytics lebih detail
-- 🔔 Push notification
-- 📱 Mobile App (Flutter/React Native)
-
----
-
-## ❓ **FINAL STATUS**
-
-**Apakah ada yang ingin ditambahkan atau diperbaiki?**
-
-**Pilih:**
-
-**A.** ✅ **Perfect! Sistem sudah lengkap** - Saya akan buatkan summary & checklist final
-
-**B.** 🔧 **Ada yang mau ditambah** - Sebutkan fitur apa
-
-**C.** 📝 **Minta dokumentasi tambahan** - Tutorial deployment, dll
-
-**D.** 🐛 **Ada bug/error** - Sebutkan errornya
-
-**Silakan konfirmasi! 🎉**
