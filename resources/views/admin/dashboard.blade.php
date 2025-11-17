@@ -3,42 +3,13 @@
 @section('title', 'Dashboard Admin')
 
 @section('sidebar')
-    <li class="nav-item">
-        <a class="nav-link active" href="{{ route('admin.dashboard') }}">
-            <i class="fas fa-home"></i> Dashboard
-        </a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="#">
-            <i class="fas fa-hospital"></i> Data Posyandu
-        </a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="#">
-            <i class="fas fa-user-nurse"></i> Data Kader
-        </a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="#">
-            <i class="fas fa-users"></i> Data Pasien
-        </a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="#">
-            <i class="fas fa-calendar-alt"></i> Jadwal Pelayanan
-        </a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="#">
-            <i class="fas fa-chart-bar"></i> Laporan & Statistik
-        </a>
-    </li>
+    @include('admin.partials.sidebar')
 @endsection
 
 @section('dashboard-content')
     <div class="page-header">
         <h2><i class="fas fa-tachometer-alt"></i> Dashboard Admin Kelurahan</h2>
-        <p class="text-muted">Monitoring Seluruh Posyandu</p>
+        <p class="text-muted">Monitoring Seluruh Posyandu - {{ \Carbon\Carbon::now()->isoFormat('dddd, D MMMM Y') }}</p>
     </div>
 
     <!-- Statistik Cards -->
@@ -104,10 +75,48 @@
         </div>
     </div>
 
+    <!-- Quick Actions -->
+    <div class="card mb-4">
+        <div class="card-header bg-white">
+            <h5 class="mb-0"><i class="fas fa-bolt"></i> Aksi Cepat</h5>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-3 mb-2">
+                    <a href="{{ route('admin.posyandu.create') }}" class="btn btn-outline-primary w-100 py-3">
+                        <i class="fas fa-hospital-alt fa-2x mb-2"></i>
+                        <br>Tambah Posyandu
+                    </a>
+                </div>
+                <div class="col-md-3 mb-2">
+                    <a href="{{ route('admin.kader.create') }}" class="btn btn-outline-success w-100 py-3">
+                        <i class="fas fa-user-plus fa-2x mb-2"></i>
+                        <br>Tambah Kader
+                    </a>
+                </div>
+                <div class="col-md-3 mb-2">
+                    <a href="{{ route('admin.jadwal.create') }}" class="btn btn-outline-info w-100 py-3">
+                        <i class="fas fa-calendar-plus fa-2x mb-2"></i>
+                        <br>Buat Jadwal
+                    </a>
+                </div>
+                <div class="col-md-3 mb-2">
+                    <a href="{{ route('admin.laporan.bulanan') }}" class="btn btn-outline-secondary w-100 py-3">
+                        <i class="fas fa-file-alt fa-2x mb-2"></i>
+                        <br>Lihat Laporan
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Rekap Per RW -->
     <div class="card">
-        <div class="card-header bg-white">
+        <div class="card-header bg-white d-flex justify-content-between align-items-center">
             <h5 class="mb-0"><i class="fas fa-chart-pie"></i> Rekap Per RW / Posyandu</h5>
+            <a href="{{ route('admin.laporan.rekap-rw') }}" class="btn btn-sm btn-primary">
+                <i class="fas fa-eye"></i> Lihat Detail
+            </a>
         </div>
         <div class="card-body">
             <div class="table-responsive">
@@ -118,31 +127,37 @@
                             <th>Nama Posyandu</th>
                             <th>Ketua</th>
                             <th>Alamat</th>
-                            <th>Total Pasien</th>
-                            <th>Status</th>
+                            <th class="text-center">Total Pasien</th>
+                            <th class="text-center">Status</th>
+                            <th>Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
                         @forelse($rekapPerRW as $posyandu)
                             <tr>
-                                <td><strong>{{ $posyandu->rw }}</strong></td>
+                                <td><strong class="text-primary">{{ $posyandu->rw }}</strong></td>
                                 <td>{{ $posyandu->nama_posyandu }}</td>
-                                <td>{{ $posyandu->ketua }}</td>
+                                <td>{{ $posyandu->ketua ?? '-' }}</td>
                                 <td>{{ $posyandu->alamat }}</td>
-                                <td>
+                                <td class="text-center">
                                     <span class="badge bg-primary">{{ $posyandu->pasiens_count }} Pasien</span>
                                 </td>
-                                <td>
+                                <td class="text-center">
                                     @if($posyandu->is_active)
                                         <span class="badge bg-success">Aktif</span>
                                     @else
                                         <span class="badge bg-secondary">Nonaktif</span>
                                     @endif
                                 </td>
+                                <td>
+                                    <a href="{{ route('admin.posyandu.show', $posyandu->id) }}" class="btn btn-sm btn-info">
+                                        <i class="fas fa-eye"></i> Detail
+                                    </a>
+                                </td>
                             </tr>
                         @empty
                             <tr>
-                                <td colspan="6" class="text-center text-muted">
+                                <td colspan="7" class="text-center text-muted">
                                     Belum ada data posyandu
                                 </td>
                             </tr>
@@ -153,3 +168,11 @@
         </div>
     </div>
 @endsection
+
+@push('styles')
+<style>
+    .text-purple {
+        color: #9C27B0;
+    }
+</style>
+@endpush
