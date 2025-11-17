@@ -54,6 +54,7 @@ Sistem informasi untuk mengelola data kesehatan balita di Posyandu dengan fitur 
 ```bash
 git clone [repository-url]
 cd posyandu-app
+```
 
 ### **2. Install Dependencies**
 
