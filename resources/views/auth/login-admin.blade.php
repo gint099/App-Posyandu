@@ -31,16 +31,16 @@
                     <!-- Login Form -->
                     <form action="{{ route('admin.login.post') }}" method="POST">
                         @csrf
-                        
+
                         <div class="mb-3">
                             <label for="email" class="form-label">
                                 <i class="fas fa-envelope"></i> Email
                             </label>
-                            <input 
-                                type="email" 
-                                class="form-control form-control-lg @error('email') is-invalid @enderror" 
-                                id="email" 
-                                name="email" 
+                            <input
+                                type="email"
+                                class="form-control form-control-lg @error('email') is-invalid @enderror"
+                                id="email"
+                                name="email"
                                 value="{{ old('email') }}"
                                 placeholder="admin@posyandu.com"
                                 autofocus
@@ -55,10 +55,10 @@
                             <label for="password" class="form-label">
                                 <i class="fas fa-lock"></i> Password
                             </label>
-                            <input 
-                                type="password" 
-                                class="form-control form-control-lg @error('password') is-invalid @enderror" 
-                                id="password" 
+                            <input
+                                type="password"
+                                class="form-control form-control-lg @error('password') is-invalid @enderror"
+                                id="password"
                                 name="password"
                                 placeholder="******"
                                 required
