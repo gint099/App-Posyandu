@@ -1,8 +1,3 @@
-## 📝 **DOKUMENTASI LENGKAP SISTEM**
-
-### **FILE: `README.md`**
-
-```markdown
 # 🏥 SISTEM INFORMASI POSYANDU
 
 Sistem informasi untuk mengelola data kesehatan balita di Posyandu dengan fitur monitoring, pencatatan pemeriksaan, imunisasi, dan pelaporan.
@@ -59,7 +54,6 @@ Sistem informasi untuk mengelola data kesehatan balita di Posyandu dengan fitur 
 ```bash
 git clone [repository-url]
 cd posyandu-app
-```
 
 ### **2. Install Dependencies**
 
