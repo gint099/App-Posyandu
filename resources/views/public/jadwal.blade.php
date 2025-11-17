@@ -68,8 +68,8 @@
             @foreach($jadwals as $jadwal)
                 <div class="col-md-6 mb-4">
                     <div class="card h-100 shadow-sm
-                        @if($jadwal->tanggal_pelayanan->isToday()) border-danger border-3
-                        @elseif($jadwal->tanggal_pelayanan->isTomorrow()) border-warning border-3
+                        @if($jadwal->tanggal_pelayanan->isToday()) border-danger border-2
+                        @elseif($jadwal->tanggal_pelayanan->isTomorrow()) border-warning border-2
                         @else border-primary
                         @endif
                     ">

@@ -1,59 +1,404 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 🏥 SISTEM INFORMASI POSYANDU
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Sistem informasi untuk mengelola data kesehatan balita di Posyandu dengan fitur monitoring, pencatatan pemeriksaan, imunisasi, dan pelaporan.
 
-## About Laravel
+---
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## 📋 **FITUR UTAMA**
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+### **1. Fitur Publik (Tanpa Login)**
+- ✅ Pencarian data pasien berdasarkan NIK
+- ✅ Melihat riwayat pemeriksaan lengkap
+- ✅ Melihat riwayat imunisasi
+- ✅ Grafik perkembangan berat & tinggi badan
+- ✅ Melihat jadwal pelayanan posyandu
+- ✅ Informasi posyandu per RW
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### **2. Fitur Kader**
+- ✅ Dashboard dengan statistik
+- ✅ CRUD data pasien (balita)
+- ✅ Input hasil pemeriksaan (BB, TB, LK, Vitamin, Status Gizi)
+- ✅ Input data imunisasi
+- ✅ Edit & update data
+- ✅ Melihat riwayat lengkap per pasien
+- ✅ Filter & pencarian data
 
-## Learning Laravel
+### **3. Fitur Admin Kelurahan**
+- ✅ Dashboard monitoring seluruh posyandu
+- ✅ CRUD data kader
+- ✅ Reset password kader
+- ✅ CRUD data posyandu
+- ✅ CRUD jadwal pelayanan
+- ✅ Monitoring data pasien (semua posyandu)
+- ✅ Laporan bulanan
+- ✅ Rekap per RW dengan grafik
+- ✅ Export/cetak laporan
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+---
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## 🛠️ **TEKNOLOGI YANG DIGUNAKAN**
 
-## Laravel Sponsors
+- **Backend:** Laravel 11
+- **Frontend:** Blade Template Engine, Bootstrap 5
+- **Database:** MySQL
+- **Chart:** Chart.js
+- **Icons:** Font Awesome 6
+- **Authentication:** Laravel Built-in Auth
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+---
 
-### Premium Partners
+## 📦 **INSTALASI**
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+### **1. Clone/Download Project**
 
-## Contributing
+```bash
+git clone [repository-url]
+cd posyandu-app
+```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### **2. Install Dependencies**
 
-## Code of Conduct
+```bash
+composer install
+npm install
+```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+### **3. Konfigurasi Environment**
 
-## Security Vulnerabilities
+```bash
+cp .env.example .env
+php artisan key:generate
+```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+Edit file `.env`:
+```env
+DB_DATABASE=posyandu_db
+DB_USERNAME=root
+DB_PASSWORD=
+```
 
-## License
+### **4. Buat Database**
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+```sql
+CREATE DATABASE posyandu_db;
+```
+
+### **5. Migrasi & Seeder**
+
+```bash
+php artisan migrate
+php artisan db:seed
+```
+
+### **6. Jalankan Server**
+
+```bash
+php artisan serve
+```
+
+Akses: **http://localhost:8000**
+
+---
+
+## 👤 **AKUN DEFAULT**
+
+### **Admin Kelurahan**
+- Email: `admin@posyandu.com`
+- Password: `admin123`
+
+### **Kader Posyandu Melati (RW 01)**
+- Email: `kader1@posyandu.com`
+- Password: `kader123`
+
+### **Kader Posyandu Mawar (RW 02)**
+- Email: `kader2@posyandu.com`
+- Password: `kader123`
+
+### **Testing Pencarian NIK**
+- NIK: `3201012020000001` (Budi Santoso)
+- NIK: `3201012021000002` (Ani Lestari)
+
+---
+
+## 📂 **STRUKTUR DATABASE**
+
+### **Tabel Utama:**
+1. `users` - Data admin & kader
+2. `posyandus` - Data posyandu per RW
+3. `pasiens` - Data balita/pasien
+4. `pemeriksaans` - Riwayat pemeriksaan
+5. `imunisasis` - Riwayat imunisasi
+6. `jadwals` - Jadwal pelayanan
+
+### **Relasi:**
+- 1 Posyandu → Many Pasien
+- 1 Posyandu → Many User (Kader)
+- 1 Pasien → Many Pemeriksaan
+- 1 Pasien → Many Imunisasi
+- 1 User → Many Pemeriksaan (yang input)
+
+---
+
+## 🚀 **ROUTE LIST**
+
+### **Public Routes**
+```
+GET  /                      - Homepage
+GET  /cari-pasien          - Form pencarian NIK
+POST /cari-pasien          - Proses pencarian
+GET  /pasien/{id}          - Detail pasien
+GET  /jadwal               - Daftar jadwal
+GET  /posyandu             - Daftar posyandu
+```
+
+### **Kader Routes** (Prefix: `/kader`)
+```
+GET  /dashboard            - Dashboard kader
+GET  /pasien               - Daftar pasien
+GET  /pasien/create        - Form tambah pasien
+POST /pasien               - Simpan pasien
+GET  /pasien/{id}          - Detail pasien
+GET  /pasien/{id}/edit     - Form edit pasien
+PUT  /pasien/{id}          - Update pasien
+DELETE /pasien/{id}        - Hapus pasien
+
+GET  /pemeriksaan          - Daftar pemeriksaan
+GET  /pemeriksaan/create   - Form input pemeriksaan
+POST /pemeriksaan          - Simpan pemeriksaan
+GET  /pemeriksaan/{id}/edit - Form edit pemeriksaan
+PUT  /pemeriksaan/{id}     - Update pemeriksaan
+DELETE /pemeriksaan/{id}   - Hapus pemeriksaan
+
+GET  /imunisasi/create     - Form input imunisasi
+POST /imunisasi            - Simpan imunisasi
+GET  /imunisasi/{id}/edit  - Form edit imunisasi
+PUT  /imunisasi/{id}       - Update imunisasi
+DELETE /imunisasi/{id}     - Hapus imunisasi
+```
+
+### **Admin Routes** (Prefix: `/admin`)
+```
+GET  /dashboard            - Dashboard admin
+GET  /kader                - Daftar kader
+GET  /kader/create         - Form tambah kader
+POST /kader                - Simpan kader
+GET  /kader/{id}           - Detail kader
+GET  /kader/{id}/edit      - Form edit kader
+PUT  /kader/{id}           - Update kader
+DELETE /kader/{id}         - Hapus kader
+POST /kader/{id}/reset-password - Reset password kader
+
+GET  /posyandu             - Daftar posyandu
+GET  /posyandu/create      - Form tambah posyandu
+POST /posyandu             - Simpan posyandu
+GET  /posyandu/{id}        - Detail posyandu
+GET  /posyandu/{id}/edit   - Form edit posyandu
+PUT  /posyandu/{id}        - Update posyandu
+DELETE /posyandu/{id}      - Hapus posyandu
+
+GET  /jadwal               - Daftar jadwal
+GET  /jadwal/create        - Form tambah jadwal
+POST /jadwal               - Simpan jadwal
+GET  /jadwal/{id}/edit     - Form edit jadwal
+PUT  /jadwal/{id}          - Update jadwal
+DELETE /jadwal/{id}        - Hapus jadwal
+
+GET  /pasien               - Daftar semua pasien
+GET  /pasien/{id}          - Detail pasien
+
+GET  /laporan/bulanan      - Laporan bulanan
+GET  /laporan/rekap-rw     - Rekap per RW
+```
+
+---
+
+## 🎨 **DESAIN & UI**
+
+- **Warna Utama:** Hijau (#4CAF50) - kesehatan
+- **Warna Sekunder:** Biru (#2196F3) - kepercayaan
+- **Typography:** Segoe UI, modern & clean
+- **Icons:** Font Awesome 6
+- **Responsive:** Mobile-first design
+- **Chart:** Chart.js untuk visualisasi data
+
+---
+
+## 📱 **RESPONSIVE DESIGN**
+
+Sistem fully responsive untuk:
+- 📱 Mobile (< 768px)
+- 📱 Tablet (768px - 1024px)
+- 💻 Desktop (> 1024px)
+
+---
+
+## 🔒 **KEAMANAN**
+
+- ✅ Password hashing (bcrypt)
+- ✅ CSRF Protection
+- ✅ Role-based access control
+- ✅ Middleware authentication
+- ✅ SQL injection prevention (Eloquent ORM)
+- ✅ XSS protection (Blade escaping)
+
+---
+
+## 📊 **FITUR GRAFIK**
+
+Menggunakan Chart.js untuk:
+- Grafik perkembangan berat badan
+- Grafik perkembangan tinggi badan
+- Grafik distribusi pasien per RW
+- Visualisasi status gizi
+
+---
+
+## 🐛 **TROUBLESHOOTING**
+
+### **Error: SQLSTATE[HY000] [1045]**
+```bash
+# Cek kredensial database di .env
+DB_USERNAME=root
+DB_PASSWORD=
+```
+
+### **Error: Class 'X' not found**
+```bash
+composer dump-autoload
+php artisan clear-compiled
+php artisan config:clear
+```
+
+### **Error: Vite manifest not found**
+```bash
+npm install
+npm run build
+```
+
+---
+
+## 📞 **KONTAK & SUPPORT**
+
+Untuk pertanyaan dan dukungan:
+- Email: support@posyandu.com
+- GitHub Issues: [link]
+
+---
+
+## 📄 **LICENSE**
+
+MIT License - Free to use
+
+---
+
+## 👨‍💻 **DEVELOPER**
+
+Developed with ❤️ for better health monitoring
+
+**Version:** 1.0.0  
+**Last Updated:** 2024
+```
+
+---
+
+## ✅ **CHECKLIST TAHAP 6 - COMPLETE**
+
+- ✅ Homepage publik dengan info & jadwal terdekat
+- ✅ Halaman pencarian NIK
+- ✅ Detail pasien untuk publik (dengan grafik)
+- ✅ Halaman jadwal pelayanan
+- ✅ Halaman daftar posyandu
+- ✅ Navbar publik dengan menu lengkap
+- ✅ Footer informatif
+- ✅ Responsive design
+- ✅ Chart.js untuk grafik perkembangan
+- ✅ README.md dokumentasi lengkap
+
+---
+
+## 🎉 **SISTEM POSYANDU - COMPLETE!**
+
+### **📊 RINGKASAN LENGKAP:**
+
+**Total Fitur yang Dibuat:**
+- ✅ 3 Role System (Publik, Kader, Admin)
+- ✅ 6 Tabel Database
+- ✅ 40+ Halaman/View
+- ✅ 15+ Controllers
+- ✅ 6 Models dengan Relasi
+- ✅ Authentication & Authorization
+- ✅ CRUD Complete untuk semua entitas
+- ✅ Laporan & Statistik
+- ✅ Grafik Visualisasi Data
+- ✅ Responsive Design
+- ✅ Print/Export Laporan
+
+**Teknologi:**
+- Laravel 11 ✅
+- Blade Template ✅
+- Bootstrap 5 ✅
+- MySQL ✅
+- Chart.js ✅
+- Font Awesome ✅
+
+---
+
+## 🚀 **QUICK START GUIDE**
+
+```bash
+# 1. Install dependencies
+composer install
+
+# 2. Setup environment
+cp .env.example .env
+php artisan key:generate
+
+# 3. Create database
+mysql -u root -e "CREATE DATABASE posyandu_db"
+
+# 4. Migrate & Seed
+php artisan migrate --seed
+
+# 5. Run server
+php artisan serve
+
+# 6. Access
+http://localhost:8000
+
+# Login:
+# Admin: admin@posyandu.com / admin123
+# Kader: kader1@posyandu.com / kader123
+```
+
+---
+
+## 🎯 **FITUR BONUS (Opsional untuk Pengembangan)**
+
+Jika ingin dikembangkan lebih lanjut:
+- 📧 Email notification untuk jadwal
+- 📱 SMS reminder untuk orang tua
+- 📊 Export Excel untuk laporan
+- 🗺️ Google Maps integration
+- 📷 Upload foto pasien
+- 💬 WhatsApp integration
+- 📈 Dashboard analytics lebih detail
+- 🔔 Push notification
+- 📱 Mobile App (Flutter/React Native)
+
+---
+
+## ❓ **FINAL STATUS**
+
+**Apakah ada yang ingin ditambahkan atau diperbaiki?**
+
+**Pilih:**
+
+**A.** ✅ **Perfect! Sistem sudah lengkap** - Saya akan buatkan summary & checklist final
+
+**B.** 🔧 **Ada yang mau ditambah** - Sebutkan fitur apa
+
+**C.** 📝 **Minta dokumentasi tambahan** - Tutorial deployment, dll
+
+**D.** 🐛 **Ada bug/error** - Sebutkan errornya
+
+**Silakan konfirmasi! 🎉**
